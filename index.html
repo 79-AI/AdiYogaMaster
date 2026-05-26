@@ -132,7 +132,7 @@
     #about { padding: 100px 0; background: var(--white); }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
     .about-img-wrap { position: relative; }
-    .about-img-main { width: 100%; height: 520px; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .about-img-main { width: 100%; height: auto; aspect-ratio: 3/4; object-fit: contain; object-position: center top; border-radius: var(--radius); box-shadow: var(--shadow); background: #F0E6D0; }
     .about-img-badge { position: absolute; bottom: -20px; right: -20px; background: var(--saffron); color: var(--white); border-radius: var(--radius); padding: 1.2rem 1.5rem; box-shadow: 0 8px 24px rgba(212,129,58,0.4); text-align: center; }
     .about-img-badge .badge-num { font-family: var(--font-head); font-size: 2.2rem; font-weight: 600; line-height: 1; }
     .about-img-badge .badge-txt { font-size: 0.75rem; letter-spacing: 0.05em; opacity: 0.9; }
@@ -287,7 +287,7 @@
       .hero-stats { display: none; }
       .about-img-badge { right: 10px; bottom: 10px; }
       .nada-img-main { height: 320px; }
-      .about-img-main { height: 380px; }
+      .about-img-main { aspect-ratio: 3/4; height: auto; }
     }
     @media (max-width: 600px) {
       .classes-grid, .testimonials-grid, .footer-grid { grid-template-columns: 1fr; }
@@ -377,7 +377,7 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-img-wrap fade-in">
-        <img class="about-img-main" src="adi-india-portrait.jpg" alt="Adi — Yoga Master from India" style="object-position: top center;" />
+        <img class="about-img-main" src="adi-india-portrait.jpg" alt="Adi — Yoga Master from India" />
         <div class="about-img-badge">
           <div class="badge-num">10+</div>
           <div class="badge-txt" data-i18n="about.badge">Years of<br>Practice</div>
