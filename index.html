@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adi Guru Yoga & Healing | Authentic Yoga from India, in Vietnam</title>
+  <meta name="description" content="Authentic Indian yoga classes, teacher training (YTT 200), sound healing & retreats in Long Xuyen, An Giang and Ho Chi Minh City." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&family=Great+Vibes&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --saffron:    #D4813A;
+      --saffron-lt: #E8A05A;
+      --green:      #3A6B35;
+      --green-dk:   #2A5028;
+      --cream:      #F5EDD6;
+      --cream-dk:   #EDE0C4;
+      --charcoal:   #2C2C2C;
+      --terra:      #C0552A;
+      --white:      #FFFFFF;
+      --font-head:  'Cormorant Garamond', Georgia, serif;
+      --font-body:  'Lato', sans-serif;
+      --font-script:'Great Vibes', cursive;
+      --shadow:     0 4px 24px rgba(0,0,0,0.10);
+      --radius:     12px;
+      --transition: 0.3s ease;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--charcoal); background: var(--white); line-height: 1.7; overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ─── UTILITY ─── */
+    .container { width: 90%; max-width: 1140px; margin: 0 auto; }
+    .section-tag { font-family: var(--font-script); font-size: 1.8rem; color: var(--saffron); display: block; margin-bottom: 0.3rem; }
+    .section-title { font-family: var(--font-head); font-size: clamp(2rem, 5vw, 3rem); font-weight: 600; line-height: 1.2; margin-bottom: 1rem; }
+    .section-sub { font-size: 1rem; color: #666; max-width: 600px; line-height: 1.8; }
+    .btn { display: inline-block; padding: 0.85rem 2rem; border-radius: 50px; font-family: var(--font-body); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase; transition: var(--transition); cursor: pointer; border: none; }
+    .btn-primary { background: var(--saffron); color: var(--white); }
+    .btn-primary:hover { background: var(--terra); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(212,129,58,0.35); }
+    .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--white); }
+    .btn-outline:hover { background: var(--white); color: var(--charcoal); }
+    .btn-green { background: var(--green); color: var(--white); }
+    .btn-green:hover { background: var(--green-dk); transform: translateY(-2px); }
+    .fade-in { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── LANGUAGE TOGGLE ANIMATION ─── */
+    [data-i18n], [data-i18n-html] { transition: opacity 0.2s ease; }
+    .lang-switching [data-i18n],
+    .lang-switching [data-i18n-html] { opacity: 0; }
+
+    /* ─── NAVBAR ─── */
+    #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1rem 0; transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease; }
+    #navbar.scrolled { background: rgba(255,255,255,0.97); box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 0.6rem 0; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: var(--font-head); font-size: 1.5rem; font-weight: 600; color: var(--white); transition: color 0.3s; display: flex; align-items: center; gap: 0.5rem; }
+    #navbar.scrolled .nav-logo { color: var(--charcoal); }
+    .nav-logo span { color: var(--saffron); }
+    .nav-links { display: flex; gap: 1.8rem; align-items: center; }
+    .nav-links a { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.9); transition: color var(--transition); }
+    #navbar.scrolled .nav-links a { color: var(--charcoal); }
+    .nav-links a:hover { color: var(--saffron) !important; }
+
+    /* Language toggle pill */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,0.15);
+      border: 1.5px solid rgba(255,255,255,0.4);
+      border-radius: 50px;
+      padding: 3px;
+      gap: 0;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    #navbar.scrolled .lang-toggle { background: rgba(212,129,58,0.1); border-color: var(--saffron); }
+    .lang-btn {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 50px;
+      color: rgba(255,255,255,0.6);
+      transition: var(--transition);
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+    }
+    #navbar.scrolled .lang-btn { color: #999; }
+    .lang-btn.active {
+      background: var(--saffron);
+      color: var(--white) !important;
+      box-shadow: 0 2px 8px rgba(212,129,58,0.4);
+    }
+    #navbar.scrolled .lang-btn.active { background: var(--saffron); color: var(--white) !important; }
+
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { width: 26px; height: 2.5px; background: var(--white); border-radius: 2px; transition: var(--transition); }
+    #navbar.scrolled .nav-hamburger span { background: var(--charcoal); }
+    .mobile-menu { display: none; flex-direction: column; background: var(--white); padding: 1.5rem 1.5rem 2rem; gap: 1rem; box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--charcoal); padding: 0.5rem 0; border-bottom: 1px solid var(--cream-dk); }
+    .mobile-menu a:hover { color: var(--saffron); }
+    .mobile-lang { display: flex; gap: 0.5rem; padding: 0.5rem 0; }
+    .mobile-lang-btn { flex: 1; text-align: center; padding: 0.5rem; border-radius: 50px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; cursor: pointer; border: 1.5px solid var(--cream-dk); color: #999; background: transparent; transition: var(--transition); }
+    .mobile-lang-btn.active { background: var(--saffron); color: var(--white); border-color: var(--saffron); }
+
+    /* ─── HERO ─── */
+    #hero { min-height: 100vh; position: relative; display: flex; align-items: center; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(20,12,5,0.68) 0%, rgba(38,68,32,0.50) 55%, rgba(15,10,5,0.75) 100%), url('adi-rishikesh-india.jpg') center 30%/cover no-repeat; }
+    .hero-bg::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 120px; background: var(--white); clip-path: ellipse(55% 100% at 50% 100%); }
+    .hero-content { position: relative; z-index: 2; padding: 120px 0 80px; }
+    .hero-tag { font-family: var(--font-script); font-size: 2rem; color: var(--saffron); margin-bottom: 0.5rem; display: block; }
+    .hero-title { font-family: var(--font-head); font-size: clamp(2.8rem, 7vw, 5rem); font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 0.5rem; }
+    .hero-title strong { font-weight: 600; color: var(--cream); }
+    .hero-subtitle { font-family: var(--font-head); font-size: clamp(1rem, 2.5vw, 1.4rem); color: rgba(255,255,255,0.78); font-style: italic; margin-bottom: 2rem; max-width: 540px; }
+    .hero-vi { font-size: 0.9rem; color: rgba(255,255,255,0.55); margin-bottom: 2.5rem; letter-spacing: 0.03em; }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-stats { position: absolute; bottom: 140px; right: 0; z-index: 2; display: flex; gap: 1px; }
+    .stat-card { background: rgba(255,255,255,0.12); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.18); padding: 1.2rem 1.8rem; text-align: center; color: var(--white); }
+    .stat-card:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+    .stat-card:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+    .stat-num { font-family: var(--font-head); font-size: 2rem; font-weight: 600; color: var(--saffron); line-height: 1; }
+    .stat-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.8; margin-top: 0.3rem; }
+
+    /* ─── ABOUT ─── */
+    #about { padding: 100px 0; background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-img-wrap { position: relative; }
+    .about-img-main { width: 100%; height: 520px; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .about-img-badge { position: absolute; bottom: -20px; right: -20px; background: var(--saffron); color: var(--white); border-radius: var(--radius); padding: 1.2rem 1.5rem; box-shadow: 0 8px 24px rgba(212,129,58,0.4); text-align: center; }
+    .about-img-badge .badge-num { font-family: var(--font-head); font-size: 2.2rem; font-weight: 600; line-height: 1; }
+    .about-img-badge .badge-txt { font-size: 0.75rem; letter-spacing: 0.05em; opacity: 0.9; }
+    .about-story { font-size: 1.05rem; color: #555; margin-bottom: 1.5rem; line-height: 1.9; }
+    .about-quote { font-family: var(--font-head); font-size: 1.4rem; font-style: italic; color: var(--saffron); border-left: 3px solid var(--saffron); padding-left: 1.2rem; margin: 2rem 0; line-height: 1.6; }
+    .about-certs { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+    .cert-tag { background: var(--cream); color: var(--green); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; padding: 0.4rem 1rem; border-radius: 50px; border: 1.5px solid var(--cream-dk); }
+
+    /* ─── CLASSES ─── */
+    #classes { padding: 100px 0; background: var(--cream); }
+    .classes-header { text-align: center; margin-bottom: 3.5rem; }
+    .classes-header .section-sub { margin: 0 auto; }
+    .classes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .class-card { background: var(--white); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow); transition: transform var(--transition), box-shadow var(--transition); position: relative; overflow: hidden; }
+    .class-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--card-color, var(--saffron)); }
+    .class-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+    .class-icon { font-size: 2.4rem; margin-bottom: 1rem; }
+    .class-name { font-family: var(--font-head); font-size: 1.4rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .class-vi { font-size: 0.78rem; color: var(--saffron); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.8rem; }
+    .class-desc { font-size: 0.92rem; color: #666; line-height: 1.7; margin-bottom: 1.2rem; }
+    .class-meta { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .class-tag { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.25rem 0.7rem; border-radius: 50px; background: var(--cream); color: var(--charcoal); }
+
+    /* ─── NADA YOGA ─── */
+    #nada { padding: 100px 0; background: var(--charcoal); position: relative; overflow: hidden; }
+    #nada::before { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(212,129,58,0.15) 0%, transparent 70%); }
+    .nada-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .nada-text { color: var(--white); }
+    .nada-text .section-tag { color: var(--saffron); }
+    .nada-text .section-title { color: var(--white); }
+    .nada-desc { font-size: 1.05rem; color: rgba(255,255,255,0.72); margin-bottom: 1.5rem; line-height: 1.9; }
+    .nada-pillars { display: flex; gap: 1rem; margin: 2rem 0; }
+    .nada-pillar { text-align: center; padding: 1.2rem; border: 1px solid rgba(212,129,58,0.3); border-radius: var(--radius); flex: 1; }
+    .nada-pillar-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .nada-pillar-text { font-size: 0.8rem; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.06em; }
+    .nada-pillar-sub { color: rgba(255,255,255,0.4); font-size: 0.7rem; display: block; margin-top: 0.2rem; }
+    .nada-img-wrap { position: relative; }
+    .nada-img-main { width: 100%; height: 480px; object-fit: cover; border-radius: var(--radius); filter: brightness(0.9); }
+    .nada-event-badge { position: absolute; bottom: 20px; left: 20px; background: rgba(212,129,58,0.95); backdrop-filter: blur(10px); border-radius: var(--radius); padding: 1rem 1.5rem; color: var(--white); }
+    .nada-event-title { font-family: var(--font-head); font-size: 1.1rem; font-weight: 600; }
+    .nada-event-info { font-size: 0.8rem; opacity: 0.9; margin-top: 0.3rem; }
+
+    /* ─── YTT 200 ─── */
+    #ytt { padding: 100px 0; background: var(--green); position: relative; overflow: hidden; }
+    #ytt::after { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1400&q=80') center/cover no-repeat; opacity: 0.06; }
+    .ytt-inner { position: relative; z-index: 2; }
+    .ytt-header { text-align: center; margin-bottom: 3.5rem; }
+    .ytt-header .section-tag { color: var(--saffron); }
+    .ytt-header .section-title { color: var(--white); }
+    .ytt-header .section-sub { color: rgba(255,255,255,0.75); margin: 0 auto; }
+    .ytt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .ytt-card { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.18); border-radius: var(--radius); padding: 2rem; color: var(--white); }
+    .ytt-card-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+    .ytt-card-title { font-family: var(--font-head); font-size: 1.3rem; font-weight: 600; margin-bottom: 0.6rem; }
+    .ytt-card-desc { font-size: 0.92rem; color: rgba(255,255,255,0.75); line-height: 1.7; }
+    .ytt-highlight { margin-top: 3rem; background: rgba(255,255,255,0.95); border-radius: var(--radius); padding: 2.5rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .ytt-highlight-badge { background: var(--saffron); color: var(--white); border-radius: var(--radius); padding: 1.5rem 2rem; text-align: center; min-width: 140px; flex-shrink: 0; }
+    .ytt-badge-big { font-family: var(--font-head); font-size: 2.5rem; font-weight: 600; line-height: 1; }
+    .ytt-badge-sub { font-size: 0.75rem; letter-spacing: 0.06em; opacity: 0.9; margin-top: 0.3rem; }
+    .ytt-highlight-text { flex: 1; }
+    .ytt-highlight-title { font-family: var(--font-head); font-size: 1.6rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.5rem; }
+    .ytt-highlight-desc { font-size: 0.95rem; color: #555; line-height: 1.7; }
+    .ytt-includes { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .ytt-inc-tag { font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.9rem; border-radius: 50px; background: var(--cream); color: var(--green); }
+    .ytt-actions { margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* ─── RETREATS ─── */
+    #retreats { padding: 100px 0; background: var(--white); }
+    .retreats-header { text-align: center; margin-bottom: 3.5rem; }
+    .retreats-header .section-sub { margin: 0 auto; }
+    .retreat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .retreat-card { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: transform var(--transition); }
+    .retreat-card:hover { transform: translateY(-6px); }
+    .retreat-img { height: 260px; object-fit: cover; width: 100%; }
+    .retreat-body { padding: 2rem; background: var(--white); }
+    .retreat-location { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--saffron); margin-bottom: 0.5rem; }
+    .retreat-title { font-family: var(--font-head); font-size: 1.5rem; font-weight: 600; margin-bottom: 0.8rem; }
+    .retreat-desc { font-size: 0.92rem; color: #666; line-height: 1.7; margin-bottom: 1.2rem; }
+    .retreat-includes { background: var(--cream); border-radius: 8px; padding: 1rem 1.2rem; margin-bottom: 1.5rem; }
+    .retreat-inc-title { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--green); margin-bottom: 0.5rem; }
+    .retreat-inc-list { font-size: 0.85rem; color: #555; }
+    .retreat-inc-list li { padding: 0.2rem 0; }
+    .retreat-inc-list li::before { content: "✓ "; color: var(--green); font-weight: 700; }
+    .retreat-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .retreat-spots { font-size: 0.8rem; color: var(--terra); font-weight: 700; }
+
+    /* ─── TESTIMONIALS ─── */
+    #testimonials { padding: 100px 0; background: var(--cream); }
+    .testimonials-header { text-align: center; margin-bottom: 3.5rem; }
+    .testimonials-header .section-sub { margin: 0 auto; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .testimonial-card { background: var(--white); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow); position: relative; }
+    .testimonial-card::before { content: '"'; position: absolute; top: 1rem; left: 1.5rem; font-family: var(--font-head); font-size: 4rem; color: var(--saffron); opacity: 0.3; line-height: 1; }
+    .testimonial-text { font-size: 0.95rem; color: #555; line-height: 1.8; margin-bottom: 1.5rem; margin-top: 1.5rem; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: 0.8rem; }
+    .testimonial-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--cream-dk); display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-size: 1.2rem; color: var(--saffron); font-weight: 600; flex-shrink: 0; }
+    .testimonial-name { font-weight: 700; font-size: 0.9rem; }
+    .testimonial-role { font-size: 0.78rem; color: #999; }
+    .testimonial-stars { color: var(--saffron); font-size: 0.85rem; margin-bottom: 0.3rem; }
+
+    /* ─── CONTACT ─── */
+    #contact { padding: 100px 0; background: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
+    .contact-item { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.5rem; }
+    .contact-icon { font-size: 1.3rem; min-width: 36px; height: 36px; background: var(--cream); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-item-title { font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.2rem; color: var(--charcoal); }
+    .contact-item-val { font-size: 0.95rem; color: #555; }
+    .contact-item-val a { color: var(--saffron); }
+    .contact-socials { display: flex; gap: 0.8rem; margin-top: 2rem; flex-wrap: wrap; }
+    .social-btn { padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; transition: var(--transition); border: 2px solid; }
+    .social-fb { border-color: #1877F2; color: #1877F2; } .social-fb:hover { background: #1877F2; color: var(--white); }
+    .social-ig { border-color: #E1306C; color: #E1306C; } .social-ig:hover { background: #E1306C; color: var(--white); }
+    .social-yt { border-color: var(--saffron); color: var(--saffron); } .social-yt:hover { background: var(--saffron); color: var(--white); }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-label { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--charcoal); margin-bottom: 0.4rem; display: block; }
+    .form-input, .form-textarea, .form-select { width: 100%; padding: 0.85rem 1rem; border: 1.5px solid #E0E0E0; border-radius: 8px; font-family: var(--font-body); font-size: 0.95rem; color: var(--charcoal); background: var(--white); transition: border-color var(--transition), box-shadow var(--transition); outline: none; }
+    .form-input:focus, .form-textarea:focus, .form-select:focus { border-color: var(--saffron); box-shadow: 0 0 0 3px rgba(212,129,58,0.12); }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-submit { width: 100%; margin-top: 0.5rem; font-size: 1rem; padding: 1rem; }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--charcoal); color: rgba(255,255,255,0.75); padding: 60px 0 30px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-logo { font-family: var(--font-head); font-size: 1.6rem; font-weight: 600; color: var(--white); margin-bottom: 1rem; }
+    .footer-logo span { color: var(--saffron); }
+    .footer-about { font-size: 0.88rem; line-height: 1.8; }
+    .footer-col-title { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--saffron); margin-bottom: 1rem; }
+    .footer-links { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-links a { font-size: 0.88rem; color: rgba(255,255,255,0.65); transition: color var(--transition); }
+    .footer-links a:hover { color: var(--saffron); }
+    .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin-bottom: 1.5rem; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: rgba(255,255,255,0.4); flex-wrap: wrap; gap: 0.5rem; }
+    .footer-bottom span { color: var(--saffron); }
+
+    /* ─── WHATSAPP ─── */
+    .whatsapp-btn { position: fixed; bottom: 28px; right: 28px; z-index: 999; background: #25D366; color: var(--white); width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 24px rgba(37,211,102,0.5); transition: transform var(--transition), box-shadow var(--transition); }
+    .whatsapp-btn:hover { transform: scale(1.12); box-shadow: 0 10px 32px rgba(37,211,102,0.6); }
+    .whatsapp-tooltip { position: absolute; right: 68px; background: var(--charcoal); color: var(--white); padding: 0.4rem 0.9rem; border-radius: 6px; font-size: 0.78rem; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity var(--transition); }
+    .whatsapp-btn:hover .whatsapp-tooltip { opacity: 1; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 992px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .about-grid, .nada-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .ytt-grid { grid-template-columns: 1fr; }
+      .retreat-grid { grid-template-columns: 1fr; }
+      .classes-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .hero-stats { display: none; }
+      .about-img-badge { right: 10px; bottom: 10px; }
+      .nada-img-main { height: 320px; }
+      .about-img-main { height: 380px; }
+    }
+    @media (max-width: 600px) {
+      .classes-grid, .testimonials-grid, .footer-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-cta { flex-direction: column; align-items: flex-start; }
+      .nada-pillars { flex-direction: column; }
+      .ytt-highlight { flex-direction: column; }
+      section { padding: 70px 0 !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">Adi<span>Guru</span> Yoga</a>
+      <ul class="nav-links">
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+        <li><a href="#classes" data-i18n="nav.classes">Classes</a></li>
+        <li><a href="#nada" data-i18n="nav.sound">Sound Healing</a></li>
+        <li><a href="#ytt" data-i18n="nav.ytt">YTT 200</a></li>
+        <li><a href="#retreats" data-i18n="nav.retreats">Retreats</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="https://wa.me/840562067312" class="btn btn-primary" target="_blank" data-i18n="nav.book">Book Now</a></li>
+        <li>
+          <div class="lang-toggle">
+            <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">EN</button>
+            <button class="lang-btn" id="btn-vi" onclick="setLanguage('vi')">VI</button>
+          </div>
+        </li>
+      </ul>
+      <div class="nav-hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-lang">
+        <button class="mobile-lang-btn active" id="mob-btn-en" onclick="setLanguage('en');closeMenu()">🌐 English</button>
+        <button class="mobile-lang-btn" id="mob-btn-vi" onclick="setLanguage('vi');closeMenu()">🇻🇳 Tiếng Việt</button>
+      </div>
+      <a href="#about" onclick="closeMenu()" data-i18n="nav.about">About</a>
+      <a href="#classes" onclick="closeMenu()" data-i18n="nav.classes">Classes</a>
+      <a href="#nada" onclick="closeMenu()" data-i18n="nav.sound">Sound Healing</a>
+      <a href="#ytt" onclick="closeMenu()" data-i18n="nav.ytt">YTT 200</a>
+      <a href="#retreats" onclick="closeMenu()" data-i18n="nav.retreats">Retreats</a>
+      <a href="#contact" onclick="closeMenu()" data-i18n="nav.contact">Contact</a>
+      <a href="https://wa.me/840562067312" target="_blank" style="color:var(--saffron)" data-i18n="nav.book.mobile">📲 Book Now via WhatsApp</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-content fade-in">
+      <span class="hero-tag" data-i18n="hero.tag">Namaste from India</span>
+      <h1 class="hero-title" data-i18n-html="hero.title">Yoga as it was<br><strong>meant to be.</strong></h1>
+      <p class="hero-subtitle" data-i18n="hero.subtitle">Ancient roots. Present practice. From India, for everyone — taught with heart, breath by breath.</p>
+      <p class="hero-vi" data-i18n="hero.vi">Yoga chân truyền từ Ấn Độ — thực hành giữa thiên nhiên Việt Nam</p>
+      <div class="hero-cta">
+        <a href="#classes" class="btn btn-primary" data-i18n="hero.cta1">Explore Classes</a>
+        <a href="#retreats" class="btn btn-outline" data-i18n="hero.cta2">Join a Retreat</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-card">
+      <div class="stat-num">200+</div>
+      <div class="stat-label" data-i18n="stat.students">Students Trained</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">E-RYT</div>
+      <div class="stat-label" data-i18n="stat.alliance">500 Certified</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">6+</div>
+      <div class="stat-label" data-i18n="stat.retreats">Retreat Journeys</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap fade-in">
+        <img class="about-img-main" src="adi-india-portrait.jpg" alt="Adi — Yoga Master from India" style="object-position: top center;" />
+        <div class="about-img-badge">
+          <div class="badge-num">10+</div>
+          <div class="badge-txt" data-i18n="about.badge">Years of<br>Practice</div>
+        </div>
+      </div>
+      <div class="about-text fade-in">
+        <span class="section-tag" data-i18n="about.tag">The Story of Adi</span>
+        <h2 class="section-title" data-i18n-html="about.title">From India's Ancient<br>Traditions to Vietnam</h2>
+        <p class="about-story" data-i18n="about.story1">Adi grew up surrounded by yoga — not as a fitness routine, but as a way of life woven into the rhythms of daily existence in India. From an early age, he learned from teachers who had received the tradition directly, lineage by lineage, breath by breath.</p>
+        <p class="about-story" data-i18n="about.story2">His journey led him to Vietnam, where he found a country whose warmth, natural beauty, and spiritual curiosity mirrored something deep in his own practice. Today, Adi teaches in Long Xuyên and Ho Chi Minh City — bringing the depth of classical Indian yoga to students who are truly ready to go beyond the poses.</p>
+        <blockquote class="about-quote" data-i18n="about.quote">"Yoga is not something you do. It is something you remember — a coming home to yourself."</blockquote>
+        <p class="about-story" data-i18n="about.story3">Whether guiding a morning Hatha session, performing sound healing with ancient singing bowls, or leading a retreat along the Mekong River — Adi teaches with his whole soul, not just his body.</p>
+        <div class="about-certs">
+          <span class="cert-tag" style="background:#FFF3E0;border-color:#D4813A;color:#7C4A00;">⭐ E-RYT 500 — Yoga Alliance</span>
+          <span class="cert-tag" style="background:#E8F5E9;border-color:#3A6B35;color:#1B4B20;">✦ RYS 200 & RYS 300 School</span>
+          <span class="cert-tag" data-i18n="cert.1">✦ Hatha & Ashtanga Certified</span>
+          <span class="cert-tag" data-i18n="cert.2">✦ Nada Yoga / Sound Healing</span>
+          <span class="cert-tag" data-i18n="cert.3">✦ Yoga Nidra Trained</span>
+          <span class="cert-tag" data-i18n="cert.4">✦ Pranayama & Meditation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CLASSES ═══ -->
+<section id="classes">
+  <div class="container">
+    <div class="classes-header fade-in">
+      <span class="section-tag" data-i18n="classes.tag">What We Practice</span>
+      <h2 class="section-title" data-i18n="classes.title">Classes for Every Journey</h2>
+      <p class="section-sub" data-i18n="classes.sub">Whether you are stepping onto the mat for the first time or deepening a lifelong practice — there is a class here for you.</p>
+    </div>
+    <div class="classes-grid">
+
+      <div class="class-card fade-in" style="--card-color:#D4813A">
+        <div class="class-icon">🪷</div>
+        <div class="class-name" data-i18n="c1.name">Hatha Yoga</div>
+        <div class="class-vi" data-i18n="c1.vi">YOGA NỀN TẢNG</div>
+        <p class="class-desc" data-i18n="c1.desc">The classical foundation of all yoga. Slow, deliberate, deeply therapeutic — perfect for building strength, flexibility and inner stillness.</p>
+        <div class="class-meta">
+          <span class="class-tag" data-i18n="tag.all">All Levels</span>
+          <span class="class-tag">60 min</span>
+          <span class="class-tag" data-i18n="tag.inperson">In-person</span>
+        </div>
+      </div>
+
+      <div class="class-card fade-in" style="--card-color:#3A6B35">
+        <div class="class-icon">🌊</div>
+        <div class="class-name" data-i18n="c2.name">Vinyasa Flow</div>
+        <div class="class-vi" data-i18n="c2.vi">YOGA DÒNG CHẢY</div>
+        <p class="class-desc" data-i18n="c2.desc">Movement synchronized with breath. Dynamic, energizing and meditative — each class feels like a moving meditation.</p>
+        <div class="class-meta">
+          <span class="class-tag" data-i18n="tag.inter">Intermediate</span>
+          <span class="class-tag">75 min</span>
+          <span class="class-tag" data-i18n="tag.both">In-person + Online</span>
+        </div>
+      </div>
+
+      <div class="class-card fade-in" style="--card-color:#C0552A">
+        <div class="class-icon">🔥</div>
+        <div class="class-name" data-i18n="c3.name">Ashtanga Yoga</div>
+        <div class="class-vi" data-i18n="c3.vi">YOGA KỶ LUẬT</div>
+        <p class="class-desc" data-i18n="c3.desc">A structured, powerful sequence practiced in the same order every time. Builds discipline, heat, and transformation from the inside out.</p>
+        <div class="class-meta">
+          <span class="class-tag" data-i18n="tag.adv">Intermediate+</span>
+          <span class="class-tag">90 min</span>
+          <span class="class-tag" data-i18n="tag.inperson">In-person</span>
+        </div>
+      </div>
+
+      <div class="class-card fade-in" style="--card-color:#7B5EA7">
+        <div class="class-icon">🧘</div>
+        <div class="class-name" data-i18n="c4.name">Meditation & Mindfulness</div>
+        <div class="class-vi" data-i18n="c4.vi">THIỀN ĐỊNH</div>
+        <p class="class-desc" data-i18n="c4.desc">Guided practices to quiet the mind, cultivate presence, and reconnect with what matters. Suitable for complete beginners.</p>
+        <div class="class-meta">
+          <span class="class-tag" data-i18n="tag.all">All Levels</span>
+          <span class="class-tag">45 min</span>
+          <span class="class-tag" data-i18n="tag.online">Online</span>
+        </div>
+      </div>
+
+      <div class="class-card fade-in" style="--card-color:#2E86AB">
+        <div class="class-icon">💨</div>
+        <div class="class-name" data-i18n="c5.name">Pranayama</div>
+        <div class="class-vi" data-i18n="c5.vi">KỸ THUẬT HƠI THỞ</div>
+        <p class="class-desc" data-i18n="c5.desc">Ancient breathing techniques that regulate energy, calm the nervous system and unlock deeper states of awareness. Often called the "yoga of breath."</p>
+        <div class="class-meta">
+          <span class="class-tag" data-i18n="tag.all">All Levels</span>
+          <span class="class-tag">45 min</span>
+          <span class="class-tag" data-i18n="tag.both">In-person + Online</span>
+        </div>
+      </div>
+
+      <div class="class-card fade-in" style="--card-color:#9B59B6">
+        <div class="class-icon">💚</div>
+        <div class="class-name" data-i18n="c6.name">Yoga Trị Liệu</div>
+        <div class="class-vi" data-i18n="c6.vi">THERAPEUTIC YOGA</div>
+        <p class="class-desc" data-i18n="c6.desc">Gentle, personalized yoga designed to heal the body and restore balance. Ideal for those recovering from injuries, stress, or burnout.</p>
+        <div class="class-meta">
+          <span class="class-tag" data-i18n="tag.all">All Levels</span>
+          <span class="class-tag">60 min</span>
+          <span class="class-tag" data-i18n="tag.private">Private / Group</span>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:3rem;">
+      <a href="https://wa.me/840562067312" class="btn btn-primary" target="_blank" data-i18n="classes.cta">Book a Class — Đặt Lịch Học</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NADA YOGA ═══ -->
+<section id="nada">
+  <div class="container">
+    <div class="nada-grid">
+      <div class="nada-text fade-in">
+        <span class="section-tag" data-i18n="nada.tag">A Journey for the Soul</span>
+        <h2 class="section-title" data-i18n-html="nada.title">Chuông Xoay Chữa Lành<br><em style="font-style:italic;font-size:0.75em;color:rgba(255,255,255,0.55)">Nada Yoga — Sound Healing</em></h2>
+        <p class="nada-desc" data-i18n="nada.desc1">In the ancient Indian tradition of Nada Yoga, sound is not just something you hear — it is something you become. Adi uses Tibetan singing bowls and hand cymbals to create a field of healing vibration that reaches where words cannot.</p>
+        <p class="nada-desc" data-i18n="nada.desc2">Lie down, close your eyes, and let the sound carry you. Each session lasts 90 minutes and leaves participants in a state of deep rest — often described as the most peaceful experience of their lives.</p>
+        <div class="nada-pillars">
+          <div class="nada-pillar">
+            <div class="nada-pillar-icon">⚖️</div>
+            <div class="nada-pillar-text" data-i18n="nada.p1">Cân Bằng</div>
+            <span class="nada-pillar-sub" data-i18n="nada.p1sub">Balance</span>
+          </div>
+          <div class="nada-pillar">
+            <div class="nada-pillar-icon">✨</div>
+            <div class="nada-pillar-text" data-i18n="nada.p2">Thư Giãn</div>
+            <span class="nada-pillar-sub" data-i18n="nada.p2sub">Relax</span>
+          </div>
+          <div class="nada-pillar">
+            <div class="nada-pillar-icon">💚</div>
+            <div class="nada-pillar-text" data-i18n="nada.p3">Chữa Lành</div>
+            <span class="nada-pillar-sub" data-i18n="nada.p3sub">Heal</span>
+          </div>
+        </div>
+        <a href="https://wa.me/840562067312?text=Hi%20Adi%2C%20I%27m%20interested%20in%20the%20Sound%20Healing%20session!" class="btn btn-primary" target="_blank" data-i18n="nada.cta">Register for Next Session</a>
+      </div>
+      <div class="nada-img-wrap fade-in">
+        <img class="nada-img-main" src="adi-studio-community.jpg" alt="Adi với cộng đồng học viên — Sound Healing session" style="object-position: center top;" />
+        <div class="nada-event-badge">
+          <div class="nada-event-title" data-i18n="nada.badge.title">🎵 Hành Trình Nada Yoga</div>
+          <div class="nada-event-info" data-i18n="nada.badge.loc">📍 ADI GURU Yoga & Healing — Long Xuyên, An Giang</div>
+          <div class="nada-event-info" data-i18n="nada.badge.time">⏰ 17:00 – 18:30 | Small group, limited spots</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EVENTS GALLERY ═══ -->
+<section id="events" style="padding:70px 0;background:var(--cream);">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:2.5rem;" class="fade-in">
+      <span class="section-tag" data-i18n="ev.tag">Real Events, Real People</span>
+      <h2 class="section-title" data-i18n="ev.title">Past & Upcoming Sessions</h2>
+      <p class="section-sub" style="margin:0 auto;" data-i18n="ev.sub">Every event is an invitation to go deeper — held in Long Xuyên and across Vietnam.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:820px;margin:0 auto;">
+      <div class="fade-in" style="border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:var(--white);">
+        <img src="adi-nada-event.jpg" alt="Chuông Xoay Chữa Lành — Nada Yoga Long Xuyên" style="width:100%;height:280px;object-fit:cover;object-position:right center;display:block;" />
+        <div style="padding:1.2rem;">
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--saffron);margin-bottom:0.4rem;" data-i18n="ev.loc">📍 Long Xuyên, An Giang</div>
+          <div style="font-family:var(--font-head);font-size:1.2rem;font-weight:600;" data-i18n="ev.e1.title">Chuông Xoay Chữa Lành</div>
+          <div style="font-size:0.85rem;color:#666;margin-top:0.3rem;" data-i18n="ev.e1.desc">Nada Yoga — 17:00–18:30 · Giới hạn chỗ</div>
+        </div>
+      </div>
+      <div class="fade-in" style="border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:var(--white);">
+        <img src="adi-soundbath-event.jpg" alt="Sound Bath Chữa Lành — Adi Guru E-RYT 500" style="width:100%;height:280px;object-fit:cover;object-position:center 60%;display:block;" />
+        <div style="padding:1.2rem;">
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--saffron);margin-bottom:0.4rem;" data-i18n="ev.loc2">📍 TP. Hồ Chí Minh</div>
+          <div style="font-family:var(--font-head);font-size:1.2rem;font-weight:600;" data-i18n="ev.e2.title">Sound Bath Experience</div>
+          <div style="font-size:0.85rem;color:#666;margin-top:0.3rem;" data-i18n="ev.e2.desc">Trải nghiệm chữa lành · E-RYT 500 Certified</div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="https://wa.me/840562067312?text=Hi%20Adi%2C%20I%27d%20like%20to%20know%20about%20upcoming%20events!" class="btn btn-primary" target="_blank" data-i18n="ev.cta">View Upcoming Events</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ YTT 200 ═══ -->
+<section id="ytt">
+  <div class="ytt-inner container">
+    <div class="ytt-header fade-in">
+      <span class="section-tag" data-i18n="ytt.tag">Become a Teacher</span>
+      <h2 class="section-title" data-i18n="ytt.title">YTT 200 — Teacher Training</h2>
+      <p class="section-sub" data-i18n="ytt.sub">International yoga teacher training — 200 hours with certification recognized by Yoga Alliance worldwide.</p>
+    </div>
+    <div class="ytt-grid">
+      <div class="ytt-card fade-in">
+        <div class="ytt-card-icon">🪷</div>
+        <div class="ytt-card-title" data-i18n="ytt.c1.title">Hatha & Ashtanga</div>
+        <p class="ytt-card-desc" data-i18n="ytt.c1.desc">Master the foundations of classical yoga — alignment, sequencing, and the philosophy behind every pose.</p>
+      </div>
+      <div class="ytt-card fade-in">
+        <div class="ytt-card-icon">🧘</div>
+        <div class="ytt-card-title" data-i18n="ytt.c2.title">Yoga Trị Liệu</div>
+        <p class="ytt-card-desc" data-i18n="ytt.c2.desc">Learn therapeutic applications — how to adapt yoga for injuries, chronic pain, and specific health conditions.</p>
+      </div>
+      <div class="ytt-card fade-in">
+        <div class="ytt-card-icon">💨</div>
+        <div class="ytt-card-title" data-i18n="ytt.c3.title">Thiền & Pranayama</div>
+        <p class="ytt-card-desc" data-i18n="ytt.c3.desc">Deep dives into meditation and breathwork — the practices that transform yoga from exercise into a way of life.</p>
+      </div>
+      <div class="ytt-card fade-in">
+        <div class="ytt-card-icon">🎓</div>
+        <div class="ytt-card-title" data-i18n="ytt.c4.title">Teaching Methodology</div>
+        <p class="ytt-card-desc" data-i18n="ytt.c4.desc">How to sequence, instruct, and hold space for students at all levels — with warmth, skill, and cultural sensitivity.</p>
+      </div>
+    </div>
+    <div class="ytt-highlight fade-in">
+      <div class="ytt-highlight-badge">
+        <div class="ytt-badge-big">200</div>
+        <div class="ytt-badge-sub" data-i18n="ytt.badge.sub">Training Hours</div>
+      </div>
+      <div class="ytt-highlight-text">
+        <div class="ytt-highlight-title" data-i18n="ytt.hl.title">International Certification</div>
+        <p class="ytt-highlight-desc" data-i18n="ytt.hl.desc">Upon completion, graduates receive an internationally recognized RYS 200 certificate from Yoga Alliance — valid worldwide. Taught bilingually (English & Vietnamese) in a warm, hands-on environment.</p>
+        <div class="ytt-includes">
+          <span class="ytt-inc-tag" data-i18n="ytt.inc1">✓ Yoga Alliance RYS 200</span>
+          <span class="ytt-inc-tag" data-i18n="ytt.inc2">✓ Bilingual EN / VI</span>
+          <span class="ytt-inc-tag" data-i18n="ytt.inc3">✓ Hatha · Ashtanga · Therapeutic</span>
+          <span class="ytt-inc-tag" data-i18n="ytt.inc4">✓ Meditation & Pranayama</span>
+          <span class="ytt-inc-tag" data-i18n="ytt.inc5">✓ Small Group (max 15)</span>
+        </div>
+        <div class="ytt-actions">
+          <a href="https://wa.me/840562067312?text=Hi%20Adi%2C%20I%27m%20interested%20in%20YTT%20200%20Teacher%20Training!" class="btn btn-green" target="_blank" data-i18n="ytt.cta">Apply for YTT 200</a>
+          <a href="tel:0562067312" class="btn" style="border:2px solid var(--green);color:var(--green);">📞 0562 067 312</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RETREATS ═══ -->
+<section id="retreats">
+  <div class="container">
+    <div class="retreats-header fade-in">
+      <span class="section-tag" data-i18n="ret.tag">Go Deeper</span>
+      <h2 class="section-title" data-i18n="ret.title">Yoga Retreats in Vietnam</h2>
+      <p class="section-sub" data-i18n="ret.sub">Practice yoga where the river meets the sky — immersive retreat experiences in the most beautiful corners of Southern Vietnam.</p>
+    </div>
+    <div class="retreat-grid">
+
+      <div class="retreat-card fade-in">
+        <img class="retreat-img" src="adi-rishikesh-india.jpg" alt="Adi và học viên — Yoga Retreat" style="object-position: center 25%;" />
+        <div class="retreat-body">
+          <div class="retreat-location">📍 Mekong Delta, Tây Nam Bộ</div>
+          <h3 class="retreat-title" data-i18n="ret1.title">River & Roots Retreat</h3>
+          <p class="retreat-desc" data-i18n="ret1.desc">Morning yoga beside the Mekong River, meditation under tropical canopies, and boat journeys through floating markets. An immersion in nature and stillness.</p>
+          <div class="retreat-includes">
+            <div class="retreat-inc-title" data-i18n="ret.includes">What's Included</div>
+            <ul class="retreat-inc-list">
+              <li data-i18n="ret1.i1">Daily Hatha & Vinyasa sessions</li>
+              <li data-i18n="ret1.i2">Morning meditation at sunrise</li>
+              <li data-i18n="ret1.i3">Mekong boat journey</li>
+              <li data-i18n="ret1.i4">Accommodation & all meals</li>
+              <li data-i18n="ret1.i5">Transfer from HCMC</li>
+            </ul>
+          </div>
+          <div class="retreat-footer">
+            <div>
+              <div style="font-family:var(--font-head);font-size:1.4rem;font-weight:600;" data-i18n="ret.duration">2–3 Days</div>
+              <div class="retreat-spots" data-i18n="ret1.spots">🔴 Limited to 12 spots</div>
+            </div>
+            <a href="https://wa.me/840562067312?text=Hi%20Adi%2C%20I%27d%20like%20to%20join%20the%20Mekong%20Retreat!" class="btn btn-primary" target="_blank" data-i18n="ret.cta">Reserve Your Spot</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="retreat-card fade-in">
+        <img class="retreat-img" src="adi-studio-community.jpg" alt="Adi Guru Yoga — An Giang Retreat Community" style="object-position: center 20%;" />
+        <div class="retreat-body">
+          <div class="retreat-location">📍 An Giang — Núi Sam, Long Xuyên</div>
+          <h3 class="retreat-title" data-i18n="ret2.title">Mountain & Silence Retreat</h3>
+          <p class="retreat-desc" data-i18n="ret2.desc">Yoga on the mountain, meditation in sacred silence, and Nada Yoga sound healing at golden hour. Adi's home base — where the practice runs deepest.</p>
+          <div class="retreat-includes">
+            <div class="retreat-inc-title" data-i18n="ret.includes">What's Included</div>
+            <ul class="retreat-inc-list">
+              <li data-i18n="ret2.i1">Daily Ashtanga & Therapeutic Yoga</li>
+              <li data-i18n="ret2.i2">Nada Yoga sound healing session</li>
+              <li data-i18n="ret2.i3">Mountain meditation walks</li>
+              <li data-i18n="ret2.i4">Accommodation & vegetarian meals</li>
+              <li data-i18n="ret2.i5">Transfer from Long Xuyên</li>
+            </ul>
+          </div>
+          <div class="retreat-footer">
+            <div>
+              <div style="font-family:var(--font-head);font-size:1.4rem;font-weight:600;" data-i18n="ret.duration">2–3 Days</div>
+              <div class="retreat-spots" data-i18n="ret2.spots">🔴 Limited to 10 spots</div>
+            </div>
+            <a href="https://wa.me/840562067312?text=Hi%20Adi%2C%20I%27d%20like%20to%20join%20the%20An%20Giang%20Retreat!" class="btn btn-primary" target="_blank" data-i18n="ret.cta">Reserve Your Spot</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="testimonials-header fade-in">
+      <span class="section-tag" data-i18n="testi.tag">What Students Say</span>
+      <h2 class="section-title" data-i18n="testi.title">Words from the Community</h2>
+      <p class="section-sub" data-i18n="testi.sub">Cảm nhận từ học viên — những người đã thực hành cùng Adi.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text" data-i18n="t1.text">I have tried many yoga classes in HCMC, but nothing compares to learning with Adi. He doesn't just teach poses — he teaches you how to breathe, how to feel, how to be present. It changed something in me.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">S</div>
+          <div>
+            <div class="testimonial-name">Sarah M.</div>
+            <div class="testimonial-role" data-i18n="t1.role">Expat, Ho Chi Minh City</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text" data-i18n="t2.text">Buổi chữa lành chuông xoay là trải nghiệm đẹp nhất tôi từng có. Nằm xuống, nhắm mắt, và để âm thanh ôm lấy mình. Tôi đã khóc mà không biết tại sao — đó là điều tuyệt vời nhất.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">L</div>
+          <div>
+            <div class="testimonial-name">Linh Nguyễn</div>
+            <div class="testimonial-role" data-i18n="t2.role">Long Xuyên, An Giang</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text" data-i18n="t3.text">The Mekong retreat was a soul reset. Waking up at sunrise, practicing yoga by the river, no phone, no noise — just breath and nature. Adi holds the space with such warmth. I'll be back.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">T</div>
+          <div>
+            <div class="testimonial-name">Thomas R.</div>
+            <div class="testimonial-role" data-i18n="t3.role">French Expat, Saigon</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info fade-in">
+        <span class="section-tag" data-i18n="con.tag">Get in Touch</span>
+        <h2 class="section-title" data-i18n-html="con.title">Let's Start Your<br>Practice Together</h2>
+        <p class="section-sub" data-i18n="con.sub" style="margin-bottom:2.5rem;">Have a question about classes, retreats, or YTT 200? Adi reads every message personally.</p>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-item-title" data-i18n="con.loc.title">Studio Location</div>
+            <div class="contact-item-val" data-i18n-html="con.loc.val">ADI GURU Yoga & Healing<br>Long Xuyên, An Giang, Vietnam</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📲</div>
+          <div>
+            <div class="contact-item-title" data-i18n="con.phone.title">WhatsApp / Phone</div>
+            <div class="contact-item-val"><a href="tel:0562067312">0562 067 312</a> &nbsp;|&nbsp; <a href="tel:0924763107">0924 763 107</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📘</div>
+          <div>
+            <div class="contact-item-title">Facebook</div>
+            <div class="contact-item-val"><a href="https://www.facebook.com/adiyogabliss" target="_blank">@adiyogabliss</a> &nbsp;|&nbsp; <a href="https://www.facebook.com/adiyogshala1" target="_blank">@adiyogshala1</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <div class="contact-item-title" data-i18n="con.hours.title">Class Hours</div>
+            <div class="contact-item-val" data-i18n-html="con.hours.val">Mon – Sat: 6:00 AM – 8:00 PM<br>Sound Healing: Sat 5:00 PM – 6:30 PM</div>
+          </div>
+        </div>
+        <div class="contact-socials">
+          <a href="https://www.facebook.com/adiyogabliss" class="social-btn social-fb" target="_blank">@adiyogabliss</a>
+          <a href="https://www.facebook.com/adiyogshala1" class="social-btn social-ig" target="_blank">@adiyogshala1</a>
+          <a href="https://www.facebook.com/adiguruu" class="social-btn social-yt" target="_blank">Adi Guru</a>
+        </div>
+      </div>
+      <div class="contact-form fade-in">
+        <div style="background:var(--cream);padding:2.5rem;border-radius:var(--radius);">
+          <h3 style="font-family:var(--font-head);font-size:1.6rem;margin-bottom:1.5rem;" data-i18n="form.title">Send a Message</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" data-i18n="form.name">Your Name</label>
+              <input type="text" class="form-input" data-i18n-placeholder="form.name.ph" placeholder="Your name" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-i18n="form.email">Email</label>
+              <input type="email" class="form-input" placeholder="your@email.com" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-i18n="form.phone">Phone / WhatsApp</label>
+            <input type="tel" class="form-input" data-i18n-placeholder="form.phone.ph" placeholder="Phone number" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-i18n="form.interest">I'm interested in...</label>
+            <select class="form-select" id="interest-select"></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" data-i18n="form.message">Your Message</label>
+            <textarea class="form-textarea" data-i18n-placeholder="form.message.ph" placeholder="Tell Adi a little about yourself..."></textarea>
+          </div>
+          <button class="btn btn-primary form-submit" onclick="handleFormSubmit(event)" data-i18n="form.submit">Send Message</button>
+          <p style="font-size:0.78rem;color:#999;text-align:center;margin-top:1rem;" data-i18n="form.note">Or reach out directly via WhatsApp for a faster reply 📲</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Adi<span>Guru</span> Yoga</div>
+        <p class="footer-about" data-i18n="footer.about">Authentic yoga from India, practiced in the heart of Vietnam. Classes, retreats, sound healing & teacher training in Long Xuyên and Ho Chi Minh City.</p>
+      </div>
+      <div>
+        <div class="footer-col-title" data-i18n="footer.col1">Programs</div>
+        <ul class="footer-links">
+          <li><a href="#classes">Hatha Yoga</a></li>
+          <li><a href="#classes">Vinyasa Flow</a></li>
+          <li><a href="#classes">Ashtanga Yoga</a></li>
+          <li><a href="#nada" data-i18n="footer.nada">Nada Yoga</a></li>
+          <li><a href="#classes" data-i18n="footer.therapeutic">Yoga Trị Liệu</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title" data-i18n="footer.col2">Learn More</div>
+        <ul class="footer-links">
+          <li><a href="#about" data-i18n="nav.about">About Adi</a></li>
+          <li><a href="#ytt">YTT 200</a></li>
+          <li><a href="#retreats" data-i18n="nav.retreats">Retreats</a></li>
+          <li><a href="#testimonials" data-i18n="footer.reviews">Reviews</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title" data-i18n="footer.col3">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:0562067312">📞 0562 067 312</a></li>
+          <li><a href="tel:0924763107">📞 0924 763 107</a></li>
+          <li><a href="https://wa.me/840562067312" data-i18n="footer.wa">💬 WhatsApp</a></li>
+          <li><a href="https://www.facebook.com/adiyogabliss" target="_blank">📘 @adiyogabliss</a></li>
+          <li><a href="https://www.facebook.com/adiyogshala1" target="_blank">📘 @adiyogshala1</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <p>© 2025 <span>Adi Guru Yoga & Healing</span>. Long Xuyên, An Giang, Vietnam.</p>
+      <p data-i18n="footer.made">Made with 🙏 for the practice.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ WHATSAPP FLOAT ═══ -->
+<a href="https://wa.me/840562067312?text=Namaste%20Adi!%20I%27d%20like%20to%20learn%20more%20about%20your%20classes." class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
+  <span class="whatsapp-tooltip" data-i18n="wa.tooltip">Chat with Adi</span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white">
+    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+  </svg>
+</a>
+
+<!-- ═══ JAVASCRIPT — FULL i18n SYSTEM ═══ -->
+<script>
+// ─────────────────────────────────────────
+// TRANSLATIONS DICTIONARY
+// ─────────────────────────────────────────
+const T = {
+  en: {
+    // NAV
+    'nav.about': 'About',
+    'nav.classes': 'Classes',
+    'nav.sound': 'Sound Healing',
+    'nav.ytt': 'YTT 200',
+    'nav.retreats': 'Retreats',
+    'nav.contact': 'Contact',
+    'nav.book': 'Book Now',
+    'nav.book.mobile': '📲 Book Now via WhatsApp',
+
+    // HERO
+    'hero.tag': 'Namaste from India',
+    'hero.title': 'Yoga as it was<br><strong>meant to be.</strong>',
+    'hero.subtitle': 'Ancient roots. Present practice. From India, for everyone — taught with heart, breath by breath.',
+    'hero.vi': 'Yoga chân truyền từ Ấn Độ — thực hành giữa thiên nhiên Việt Nam',
+    'hero.cta1': 'Explore Classes',
+    'hero.cta2': 'Join a Retreat',
+
+    // STATS
+    'stat.students': 'Students Trained',
+    'stat.alliance': '500 Certified',
+    'stat.retreats': 'Retreat Journeys',
+
+    // ABOUT
+    'about.tag': 'The Story of Adi',
+    'about.title': 'From India\'s Ancient<br>Traditions to Vietnam',
+    'about.badge': 'Years of\nPractice',
+    'about.story1': 'Adi grew up surrounded by yoga — not as a fitness routine, but as a way of life woven into the rhythms of daily existence in India. From an early age, he learned from teachers who had received the tradition directly, lineage by lineage, breath by breath.',
+    'about.story2': 'His journey led him to Vietnam, where he found a country whose warmth, natural beauty, and spiritual curiosity mirrored something deep in his own practice. Today, Adi teaches in Long Xuyên and Ho Chi Minh City — bringing the depth of classical Indian yoga to students who are truly ready to go beyond the poses.',
+    'about.quote': '"Yoga is not something you do. It is something you remember — a coming home to yourself."',
+    'about.story3': 'Whether guiding a morning Hatha session, performing sound healing with ancient singing bowls, or leading a retreat along the Mekong River — Adi teaches with his whole soul, not just his body.',
+    'cert.1': '✦ Hatha & Ashtanga Certified',
+    'cert.2': '✦ Nada Yoga / Sound Healing',
+    'cert.3': '✦ Yoga Nidra Trained',
+    'cert.4': '✦ Pranayama & Meditation',
+
+    // CLASSES
+    'classes.tag': 'What We Practice',
+    'classes.title': 'Classes for Every Journey',
+    'classes.sub': 'Whether you are stepping onto the mat for the first time or deepening a lifelong practice — there is a class here for you.',
+    'classes.cta': 'Book a Class',
+    'c1.name': 'Hatha Yoga', 'c1.vi': 'CLASSICAL FOUNDATION', 'c1.desc': 'The classical foundation of all yoga. Slow, deliberate, deeply therapeutic — perfect for building strength, flexibility and inner stillness.',
+    'c2.name': 'Vinyasa Flow', 'c2.vi': 'FLOW WITH BREATH', 'c2.desc': 'Movement synchronized with breath. Dynamic, energizing and meditative — each class feels like a moving meditation.',
+    'c3.name': 'Ashtanga Yoga', 'c3.vi': 'DISCIPLINE & POWER', 'c3.desc': 'A structured, powerful sequence practiced in the same order every time. Builds discipline, heat, and transformation from the inside out.',
+    'c4.name': 'Meditation & Mindfulness', 'c4.vi': 'INNER STILLNESS', 'c4.desc': 'Guided practices to quiet the mind, cultivate presence, and reconnect with what matters. Suitable for complete beginners.',
+    'c5.name': 'Pranayama', 'c5.vi': 'BREATHWORK', 'c5.desc': 'Ancient breathing techniques that regulate energy, calm the nervous system and unlock deeper states of awareness. Often called the "yoga of breath."',
+    'c6.name': 'Yoga Trị Liệu', 'c6.vi': 'THERAPEUTIC YOGA', 'c6.desc': 'Gentle, personalized yoga designed to heal the body and restore balance. Ideal for those recovering from injuries, stress, or burnout.',
+    'tag.all': 'All Levels', 'tag.inter': 'Intermediate', 'tag.adv': 'Intermediate+', 'tag.inperson': 'In-person', 'tag.online': 'Online', 'tag.both': 'In-person + Online', 'tag.private': 'Private / Group',
+
+    // NADA
+    'nada.tag': 'A Journey for the Soul',
+    'nada.title': 'Sound Healing<br><em style="font-style:italic;font-size:0.75em;color:rgba(255,255,255,0.55)">Nada Yoga — Chuông Xoay Chữa Lành</em>',
+    'nada.desc1': 'In the ancient Indian tradition of Nada Yoga, sound is not just something you hear — it is something you become. Adi uses Tibetan singing bowls and hand cymbals to create a field of healing vibration that reaches where words cannot.',
+    'nada.desc2': 'Lie down, close your eyes, and let the sound carry you. Each session lasts 90 minutes and leaves participants in a state of deep rest — often described as the most peaceful experience of their lives.',
+    'nada.p1': 'Balance', 'nada.p1sub': 'Cân Bằng',
+    'nada.p2': 'Relax', 'nada.p2sub': 'Thư Giãn',
+    'nada.p3': 'Heal', 'nada.p3sub': 'Chữa Lành',
+    'nada.cta': 'Register for Next Session',
+    'nada.badge.title': '🎵 Nada Yoga Journey',
+    'nada.badge.loc': '📍 ADI GURU Yoga & Healing — Long Xuyên, An Giang',
+    'nada.badge.time': '⏰ 5:00 PM – 6:30 PM | Small group, limited spots',
+
+    // YTT
+    'ytt.tag': 'Become a Teacher',
+    'ytt.title': 'YTT 200 — Teacher Training',
+    'ytt.sub': 'International yoga teacher training — 200 hours with certification recognized by Yoga Alliance worldwide.',
+    'ytt.c1.title': 'Hatha & Ashtanga', 'ytt.c1.desc': 'Master the foundations of classical yoga — alignment, sequencing, and the philosophy behind every pose.',
+    'ytt.c2.title': 'Therapeutic Yoga', 'ytt.c2.desc': 'Learn therapeutic applications — how to adapt yoga for injuries, chronic pain, and specific health conditions.',
+    'ytt.c3.title': 'Meditation & Pranayama', 'ytt.c3.desc': 'Deep dives into meditation and breathwork — the practices that transform yoga from exercise into a way of life.',
+    'ytt.c4.title': 'Teaching Methodology', 'ytt.c4.desc': 'How to sequence, instruct, and hold space for students at all levels — with warmth, skill, and cultural sensitivity.',
+    'ytt.badge.sub': 'Training Hours',
+    'ytt.hl.title': 'International Certification',
+    'ytt.hl.desc': 'Upon completion, graduates receive an internationally recognized RYS 200 certificate from Yoga Alliance — valid worldwide. Taught bilingually (English & Vietnamese) in a warm, hands-on environment.',
+    'ytt.inc1': '✓ Yoga Alliance RYS 200', 'ytt.inc2': '✓ Bilingual EN / VI', 'ytt.inc3': '✓ Hatha · Ashtanga · Therapeutic', 'ytt.inc4': '✓ Meditation & Pranayama', 'ytt.inc5': '✓ Small Group (max 15)',
+    'ytt.cta': 'Apply for YTT 200',
+
+    // RETREATS
+    'ret.tag': 'Go Deeper',
+    'ret.title': 'Yoga Retreats in Vietnam',
+    'ret.sub': 'Practice yoga where the river meets the sky — immersive retreat experiences in the most beautiful corners of Southern Vietnam.',
+    'ret.includes': "What's Included",
+    'ret.duration': '2–3 Days',
+    'ret.cta': 'Reserve Your Spot',
+    'ret1.title': 'River & Roots Retreat', 'ret1.desc': 'Morning yoga beside the Mekong River, meditation under tropical canopies, and boat journeys through floating markets. An immersion in nature and stillness.',
+    'ret1.i1': 'Daily Hatha & Vinyasa sessions', 'ret1.i2': 'Morning meditation at sunrise', 'ret1.i3': 'Mekong boat journey', 'ret1.i4': 'Accommodation & all meals', 'ret1.i5': 'Transfer from HCMC',
+    'ret1.spots': '🔴 Limited to 12 spots',
+    'ret2.title': 'Mountain & Silence Retreat', 'ret2.desc': 'Yoga on the mountain, meditation in sacred silence, and Nada Yoga sound healing at golden hour. Adi\'s home base — where the practice runs deepest.',
+    'ret2.i1': 'Daily Ashtanga & Therapeutic Yoga', 'ret2.i2': 'Nada Yoga sound healing session', 'ret2.i3': 'Mountain meditation walks', 'ret2.i4': 'Accommodation & vegetarian meals', 'ret2.i5': 'Transfer from Long Xuyên',
+    'ret2.spots': '🔴 Limited to 10 spots',
+
+    // TESTIMONIALS
+    'testi.tag': 'What Students Say',
+    'testi.title': 'Words from the Community',
+    'testi.sub': 'Experiences shared by students who have practiced with Adi.',
+    't1.text': 'I have tried many yoga classes in HCMC, but nothing compares to learning with Adi. He doesn\'t just teach poses — he teaches you how to breathe, how to feel, how to be present. It changed something in me.',
+    't1.role': 'Expat, Ho Chi Minh City',
+    't2.text': 'The singing bowl healing session was the most beautiful experience I\'ve ever had. Lying down, eyes closed, letting the sound embrace you. I cried without knowing why — and it was the most wonderful thing.',
+    't2.role': 'Long Xuyên, An Giang',
+    't3.text': 'The Mekong retreat was a soul reset. Waking up at sunrise, practicing yoga by the river, no phone, no noise — just breath and nature. Adi holds the space with such warmth. I\'ll be back.',
+    't3.role': 'French Expat, Saigon',
+
+    // CONTACT
+    'con.tag': 'Get in Touch',
+    'con.title': 'Let\'s Start Your<br>Practice Together',
+    'con.sub': 'Have a question about classes, retreats, or YTT 200? Adi reads every message personally — he would love to hear from you.',
+    'con.loc.title': 'Studio Location',
+    'con.loc.val': 'ADI GURU Yoga & Healing<br>Long Xuyên, An Giang, Vietnam',
+    'con.phone.title': 'WhatsApp / Phone',
+    'con.hours.title': 'Class Hours',
+    'con.hours.val': 'Mon – Sat: 6:00 AM – 8:00 PM<br>Sound Healing: Sat 5:00 PM – 6:30 PM',
+    'form.title': 'Send a Message',
+    'form.name': 'Your Name', 'form.name.ph': 'Your full name',
+    'form.email': 'Email',
+    'form.phone': 'Phone / WhatsApp', 'form.phone.ph': 'Your phone number',
+    'form.interest': "I'm interested in...",
+    'form.message': 'Your Message', 'form.message.ph': 'Tell Adi a little about yourself and what you\'re looking for...',
+    'form.submit': 'Send Message',
+    'form.submit.ok': '✓ Sent! Adi will reply soon.',
+    'form.note': 'Or reach out directly via WhatsApp for a faster reply 📲',
+
+    // FOOTER
+    'footer.about': 'Authentic yoga from India, practiced in the heart of Vietnam. Classes, retreats, sound healing & teacher training in Long Xuyên and Ho Chi Minh City.',
+    'footer.col1': 'Programs', 'footer.col2': 'Learn More', 'footer.col3': 'Contact',
+    'footer.nada': 'Nada Yoga', 'footer.therapeutic': 'Therapeutic Yoga',
+    'footer.reviews': 'Reviews',
+    'footer.wa': '💬 WhatsApp',
+    'footer.made': 'Made with 🙏 for the practice.',
+
+    // EVENTS
+    'ev.tag': 'Real Events, Real People',
+    'ev.title': 'Past & Upcoming Sessions',
+    'ev.sub': 'Every event is an invitation to go deeper — held in Long Xuyên and across Vietnam.',
+    'ev.loc': '📍 Long Xuyên, An Giang',
+    'ev.loc2': '📍 Ho Chi Minh City',
+    'ev.e1.title': 'Singing Bowl Healing',
+    'ev.e1.desc': 'Nada Yoga · 5:00–6:30 PM · Limited spots',
+    'ev.e2.title': 'Sound Bath Experience',
+    'ev.e2.desc': 'Healing experience · E-RYT 500 Certified',
+    'ev.cta': 'View Upcoming Events',
+
+    // WHATSAPP
+    'wa.tooltip': 'Chat with Adi',
+
+    // SELECT OPTIONS
+    'select.0': '— Select a program —',
+    'select.1': 'Regular Classes (Hatha / Vinyasa / Ashtanga)',
+    'select.2': 'Sound Healing — Nada Yoga',
+    'select.3': 'YTT 200 Teacher Training',
+    'select.4': 'Mekong Delta Retreat',
+    'select.5': 'An Giang Mountain Retreat',
+    'select.6': 'Private Sessions',
+    'select.7': 'Online Classes',
+  },
+
+  vi: {
+    // NAV
+    'nav.about': 'Về Adi',
+    'nav.classes': 'Lớp Học',
+    'nav.sound': 'Chữa Lành',
+    'nav.ytt': 'Đào Tạo HLV',
+    'nav.retreats': 'Retreat',
+    'nav.contact': 'Liên Hệ',
+    'nav.book': 'Đặt Lịch',
+    'nav.book.mobile': '📲 Đặt Lịch qua WhatsApp',
+
+    // HERO
+    'hero.tag': 'Namaste từ Ấn Độ',
+    'hero.title': 'Yoga — đúng như<br><strong>bản chất của nó.</strong>',
+    'hero.subtitle': 'Nguồn gốc cổ xưa. Thực hành hiện tại. Từ Ấn Độ, dành cho mọi người — giảng dạy bằng trái tim, từng hơi thở.',
+    'hero.vi': 'Authentic Indian Yoga — practiced in the heart of Vietnam',
+    'hero.cta1': 'Khám Phá Lớp Học',
+    'hero.cta2': 'Tham Gia Retreat',
+
+    // STATS
+    'stat.students': 'Học Viên Đào Tạo',
+    'stat.alliance': '500 Certified',
+    'stat.retreats': 'Chuyến Retreat',
+
+    // ABOUT
+    'about.tag': 'Câu Chuyện Của Adi',
+    'about.title': 'Từ Truyền Thống Cổ Xưa<br>Ấn Độ Đến Việt Nam',
+    'about.badge': 'Năm\nThực Hành',
+    'about.story1': 'Adi lớn lên giữa yoga — không phải như một bài tập thể dục, mà như một lối sống gắn liền với nhịp thở cuộc đời hằng ngày ở Ấn Độ. Từ nhỏ, anh học từ những người thầy đã tiếp nhận truyền thống trực tiếp, từ thế hệ này sang thế hệ khác, từng hơi thở kế tiếp.',
+    'about.story2': 'Hành trình đưa anh đến Việt Nam — nơi anh tìm thấy một đất nước có sự ấm áp, vẻ đẹp thiên nhiên và tinh thần cởi mở phản chiếu điều gì đó sâu sắc trong chính việc thực hành của mình. Ngày nay, Adi giảng dạy tại Long Xuyên và TP. Hồ Chí Minh — mang chiều sâu của yoga Ấn Độ cổ điển đến với những học viên thực sự sẵn sàng vượt ra ngoài các tư thế.',
+    'about.quote': '"Yoga không phải là điều bạn làm. Đó là điều bạn nhớ lại — một sự trở về với chính mình."',
+    'about.story3': 'Dù đang hướng dẫn buổi tập Hatha buổi sáng, thực hiện chữa lành âm thanh với những chiếc chuông xoay cổ xưa, hay dẫn dắt một retreat dọc sông Mekong — Adi dạy bằng toàn bộ tâm hồn, không chỉ bằng cơ thể.',
+    'cert.1': '✦ Chứng Nhận Hatha & Ashtanga',
+    'cert.2': '✦ Nada Yoga / Chữa Lành Âm Thanh',
+    'cert.3': '✦ Đào Tạo Yoga Nidra',
+    'cert.4': '✦ Pranayama & Thiền Định',
+
+    // CLASSES
+    'classes.tag': 'Chúng Ta Thực Hành Gì',
+    'classes.title': 'Lớp Học Cho Mọi Hành Trình',
+    'classes.sub': 'Dù bạn mới bước lên thảm lần đầu hay đang đào sâu hơn trong hành trình cả đời — luôn có một lớp học dành riêng cho bạn.',
+    'classes.cta': 'Đặt Lịch Học Ngay',
+    'c1.name': 'Hatha Yoga', 'c1.vi': 'YOGA NỀN TẢNG', 'c1.desc': 'Nền tảng cổ điển của tất cả các phong cách yoga. Chậm rãi, có chủ đích, điều trị sâu — hoàn hảo để xây dựng sức mạnh, sự dẻo dai và sự tĩnh lặng bên trong.',
+    'c2.name': 'Vinyasa Flow', 'c2.vi': 'YOGA DÒNG CHẢY', 'c2.desc': 'Chuyển động đồng bộ với hơi thở. Năng động, tiếp thêm năng lượng và thiền định — mỗi buổi học như một bài thiền chuyển động.',
+    'c3.name': 'Ashtanga Yoga', 'c3.vi': 'YOGA KỶ LUẬT', 'c3.desc': 'Một chuỗi có cấu trúc, mạnh mẽ được thực hành theo cùng một thứ tự mỗi lần. Xây dựng kỷ luật, nhiệt năng và sự biến đổi từ bên trong.',
+    'c4.name': 'Thiền Định & Chánh Niệm', 'c4.vi': 'INNER STILLNESS', 'c4.desc': 'Các bài thực hành được hướng dẫn để làm tĩnh tâm trí, nuôi dưỡng sự hiện diện và kết nối lại với điều quan trọng. Phù hợp cho người hoàn toàn mới.',
+    'c5.name': 'Pranayama', 'c5.vi': 'KỸ THUẬT HƠI THỞ', 'c5.desc': 'Các kỹ thuật hít thở cổ xưa điều chỉnh năng lượng, làm dịu hệ thần kinh và mở khóa các trạng thái nhận thức sâu hơn. Thường được gọi là "yoga của hơi thở."',
+    'c6.name': 'Yoga Trị Liệu', 'c6.vi': 'THERAPEUTIC YOGA', 'c6.desc': 'Yoga nhẹ nhàng, cá nhân hóa được thiết kế để chữa lành cơ thể và khôi phục cân bằng. Lý tưởng cho những người đang hồi phục sau chấn thương, căng thẳng hoặc kiệt sức.',
+    'tag.all': 'Mọi Trình Độ', 'tag.inter': 'Trung Cấp', 'tag.adv': 'Trung Cấp+', 'tag.inperson': 'Trực Tiếp', 'tag.online': 'Trực Tuyến', 'tag.both': 'Trực Tiếp + Online', 'tag.private': 'Riêng / Nhóm',
+
+    // NADA
+    'nada.tag': 'Hành Trình Cho Tâm Hồn',
+    'nada.title': 'Chuông Xoay Chữa Lành<br><em style="font-style:italic;font-size:0.75em;color:rgba(255,255,255,0.55)">Nada Yoga — Sound Healing</em>',
+    'nada.desc1': 'Trong truyền thống Nada Yoga cổ xưa của Ấn Độ, âm thanh không chỉ là điều bạn nghe — đó là điều bạn trở thành. Adi sử dụng chuông xoay Tây Tạng và chũm chọe để tạo ra một trường chữa lành bằng rung động, chạm đến nơi mà lời nói không thể.',
+    'nada.desc2': 'Hãy nằm xuống, nhắm mắt và để âm thanh đưa bạn đi. Mỗi buổi kéo dài 90 phút và để lại người tham gia trong trạng thái nghỉ ngơi sâu — thường được mô tả là trải nghiệm bình yên nhất trong cuộc đời họ.',
+    'nada.p1': 'Cân Bằng', 'nada.p1sub': 'Balance',
+    'nada.p2': 'Thư Giãn', 'nada.p2sub': 'Relax',
+    'nada.p3': 'Chữa Lành', 'nada.p3sub': 'Heal',
+    'nada.cta': 'Đăng Ký Buổi Kế Tiếp',
+    'nada.badge.title': '🎵 Hành Trình Nada Yoga',
+    'nada.badge.loc': '📍 ADI GURU Yoga & Healing — Long Xuyên, An Giang',
+    'nada.badge.time': '⏰ 17:00 – 18:30 | Nhóm nhỏ, chỗ có hạn',
+
+    // YTT
+    'ytt.tag': 'Trở Thành Giáo Viên',
+    'ytt.title': 'YTT 200 — Đào Tạo Giáo Viên Yoga',
+    'ytt.sub': 'Đào tạo huấn luyện viên yoga quốc tế — 200 giờ với chứng chỉ được công nhận bởi Yoga Alliance toàn cầu.',
+    'ytt.c1.title': 'Hatha & Ashtanga', 'ytt.c1.desc': 'Nắm vững nền tảng của yoga cổ điển — căn chỉnh, sắp xếp chuỗi và triết lý đằng sau mỗi tư thế.',
+    'ytt.c2.title': 'Yoga Trị Liệu', 'ytt.c2.desc': 'Tìm hiểu các ứng dụng trị liệu — cách điều chỉnh yoga cho chấn thương, đau mãn tính và các tình trạng sức khỏe cụ thể.',
+    'ytt.c3.title': 'Thiền & Pranayama', 'ytt.c3.desc': 'Đào sâu vào thiền định và hơi thở — những thực hành biến yoga từ bài tập thể dục thành một lối sống.',
+    'ytt.c4.title': 'Phương Pháp Giảng Dạy', 'ytt.c4.desc': 'Cách lên chương trình, hướng dẫn và giữ không gian cho học viên ở mọi trình độ — với sự ấm áp, kỹ năng và nhạy cảm văn hóa.',
+    'ytt.badge.sub': 'Giờ Đào Tạo',
+    'ytt.hl.title': 'Chứng Chỉ Quốc Tế',
+    'ytt.hl.desc': 'Sau khi hoàn thành, học viên nhận được chứng chỉ RYS 200 được công nhận quốc tế từ Yoga Alliance — có giá trị trên toàn thế giới. Giảng dạy song ngữ (Tiếng Anh & Tiếng Việt) trong môi trường ấm áp, thực hành.',
+    'ytt.inc1': '✓ Yoga Alliance RYS 200', 'ytt.inc2': '✓ Song Ngữ EN / VI', 'ytt.inc3': '✓ Hatha · Ashtanga · Trị Liệu', 'ytt.inc4': '✓ Thiền Định & Pranayama', 'ytt.inc5': '✓ Nhóm Nhỏ (tối đa 15 người)',
+    'ytt.cta': 'Đăng Ký YTT 200',
+
+    // RETREATS
+    'ret.tag': 'Đi Sâu Hơn',
+    'ret.title': 'Yoga Retreat Tại Việt Nam',
+    'ret.sub': 'Thực hành yoga nơi sông gặp trời — những trải nghiệm retreat đắm chìm ở những góc đẹp nhất của miền Nam Việt Nam.',
+    'ret.includes': 'Bao Gồm',
+    'ret.duration': '2–3 Ngày',
+    'ret.cta': 'Đặt Chỗ Ngay',
+    'ret1.title': 'Retreat Sông & Cội Nguồn', 'ret1.desc': 'Yoga buổi sáng bên sông Mekong, thiền định dưới tán rừng nhiệt đới và những chuyến đò qua chợ nổi. Một sự đắm chìm vào thiên nhiên và sự tĩnh lặng.',
+    'ret1.i1': 'Yoga Hatha & Vinyasa hàng ngày', 'ret1.i2': 'Thiền định buổi sáng lúc bình minh', 'ret1.i3': 'Chuyến đò trên sông Mekong', 'ret1.i4': 'Chỗ ở & ăn uống đầy đủ', 'ret1.i5': 'Đưa đón từ TP.HCM',
+    'ret1.spots': '🔴 Giới hạn 12 chỗ',
+    'ret2.title': 'Retreat Núi & Tĩnh Lặng', 'ret2.desc': 'Yoga trên núi, thiền định trong không gian linh thiêng yên tĩnh và chữa lành âm thanh Nada Yoga vào giờ vàng. Ngôi nhà của Adi — nơi thực hành chạm sâu nhất.',
+    'ret2.i1': 'Yoga Ashtanga & Trị Liệu hàng ngày', 'ret2.i2': 'Buổi chữa lành Nada Yoga', 'ret2.i3': 'Đi bộ thiền định trên núi', 'ret2.i4': 'Chỗ ở & bữa ăn chay', 'ret2.i5': 'Đưa đón từ Long Xuyên',
+    'ret2.spots': '🔴 Giới hạn 10 chỗ',
+
+    // TESTIMONIALS
+    'testi.tag': 'Học Viên Nói Gì',
+    'testi.title': 'Tiếng Nói Từ Cộng Đồng',
+    'testi.sub': 'Cảm nhận từ những người đã thực hành cùng Adi.',
+    't1.text': 'Tôi đã thử nhiều lớp yoga ở TP.HCM, nhưng không có gì sánh được với việc học cùng Adi. Anh ấy không chỉ dạy tư thế — anh dạy bạn cách thở, cách cảm nhận, cách hiện diện. Điều đó đã thay đổi điều gì đó trong tôi.',
+    't1.role': 'Người nước ngoài, TP. Hồ Chí Minh',
+    't2.text': 'Buổi chữa lành chuông xoay là trải nghiệm đẹp nhất tôi từng có. Nằm xuống, nhắm mắt, và để âm thanh ôm lấy mình. Tôi đã khóc mà không biết tại sao — đó là điều tuyệt vời nhất.',
+    't2.role': 'Long Xuyên, An Giang',
+    't3.text': 'Retreat Mekong là một sự tái sinh của tâm hồn. Thức dậy lúc bình minh, tập yoga bên sông, không điện thoại, không tiếng ồn — chỉ có hơi thở và thiên nhiên. Adi giữ không gian với sự ấm áp tuyệt vời. Tôi sẽ quay lại.',
+    't3.role': 'Người Pháp, Sài Gòn',
+
+    // CONTACT
+    'con.tag': 'Liên Hệ Với Chúng Tôi',
+    'con.title': 'Hãy Bắt Đầu<br>Hành Trình Cùng Nhau',
+    'con.sub': 'Có câu hỏi về lớp học, retreat hay YTT 200? Adi đọc mọi tin nhắn cá nhân — anh ấy rất vui khi được nghe từ bạn.',
+    'con.loc.title': 'Địa Chỉ Studio',
+    'con.loc.val': 'ADI GURU Yoga & Healing<br>Long Xuyên, An Giang, Việt Nam',
+    'con.phone.title': 'WhatsApp / Điện Thoại',
+    'con.hours.title': 'Giờ Dạy Học',
+    'con.hours.val': 'Thứ 2 – Thứ 7: 6:00 SA – 8:00 CH<br>Chữa Lành Âm Thanh: Thứ 7, 17:00 – 18:30',
+    'form.title': 'Gửi Tin Nhắn',
+    'form.name': 'Họ Tên', 'form.name.ph': 'Tên đầy đủ của bạn',
+    'form.email': 'Email',
+    'form.phone': 'SĐT / WhatsApp', 'form.phone.ph': 'Số điện thoại của bạn',
+    'form.interest': 'Tôi quan tâm đến...',
+    'form.message': 'Tin Nhắn', 'form.message.ph': 'Hãy kể cho Adi nghe một chút về bạn và những gì bạn đang tìm kiếm...',
+    'form.submit': 'Gửi Tin Nhắn',
+    'form.submit.ok': '✓ Đã Gửi! Adi sẽ phản hồi sớm.',
+    'form.note': 'Hoặc nhắn trực tiếp qua WhatsApp để được phản hồi nhanh hơn 📲',
+
+    // FOOTER
+    'footer.about': 'Yoga chân truyền từ Ấn Độ, thực hành tại trái tim Việt Nam. Lớp học, retreat, chữa lành âm thanh & đào tạo giáo viên tại Long Xuyên và TP. Hồ Chí Minh.',
+    'footer.col1': 'Chương Trình', 'footer.col2': 'Tìm Hiểu Thêm', 'footer.col3': 'Liên Hệ',
+    'footer.nada': 'Nada Yoga', 'footer.therapeutic': 'Yoga Trị Liệu',
+    'footer.reviews': 'Đánh Giá',
+    'footer.wa': '💬 WhatsApp',
+    'footer.made': 'Làm bằng 🙏 cho việc thực hành.',
+
+    // EVENTS
+    'ev.tag': 'Sự Kiện Thực Tế, Con Người Thực',
+    'ev.title': 'Sự Kiện Đã Qua & Sắp Tới',
+    'ev.sub': 'Mỗi sự kiện là lời mời để đi sâu hơn — diễn ra tại Long Xuyên và khắp Việt Nam.',
+    'ev.loc': '📍 Long Xuyên, An Giang',
+    'ev.loc2': '📍 TP. Hồ Chí Minh',
+    'ev.e1.title': 'Chuông Xoay Chữa Lành',
+    'ev.e1.desc': 'Nada Yoga · 17:00–18:30 · Giới hạn chỗ',
+    'ev.e2.title': 'Trải Nghiệm Sound Bath',
+    'ev.e2.desc': 'Chữa lành âm thanh · Chứng nhận E-RYT 500',
+    'ev.cta': 'Xem Sự Kiện Sắp Tới',
+
+    // WHATSAPP
+    'wa.tooltip': 'Nhắn tin với Adi',
+
+    // SELECT OPTIONS
+    'select.0': '— Chọn chương trình —',
+    'select.1': 'Lớp Học Thường (Hatha / Vinyasa / Ashtanga)',
+    'select.2': 'Chữa Lành Âm Thanh — Nada Yoga',
+    'select.3': 'Đào Tạo HLV YTT 200',
+    'select.4': 'Retreat Đồng Bằng Sông Cửu Long',
+    'select.5': 'Retreat Núi An Giang',
+    'select.6': 'Buổi Học Riêng',
+    'select.7': 'Học Online',
+  }
+};
+
+// ─────────────────────────────────────────
+// LANGUAGE ENGINE
+// ─────────────────────────────────────────
+let currentLang = localStorage.getItem('adi-lang') || 'en';
+
+function setLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('adi-lang', lang);
+  document.getElementById('html-root').setAttribute('lang', lang);
+
+  // Fade out
+  document.body.classList.add('lang-switching');
+
+  setTimeout(() => {
+    // Text content
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (T[lang][key] !== undefined) el.textContent = T[lang][key];
+    });
+    // HTML content
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (T[lang][key] !== undefined) el.innerHTML = T[lang][key];
+    });
+    // Placeholders
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (T[lang][key] !== undefined) el.placeholder = T[lang][key];
+    });
+
+    // Select dropdown
+    buildSelect(lang);
+
+    // Update toggle buttons
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
+    document.getElementById('mob-btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('mob-btn-vi').classList.toggle('active', lang === 'vi');
+
+    // Fade back in
+    document.body.classList.remove('lang-switching');
+  }, 180);
+}
+
+function buildSelect(lang) {
+  const sel = document.getElementById('interest-select');
+  sel.innerHTML = '';
+  for (let i = 0; i <= 7; i++) {
+    const key = `select.${i}`;
+    const opt = document.createElement('option');
+    opt.value = i === 0 ? '' : T[lang][key];
+    opt.textContent = T[lang][key] || key;
+    sel.appendChild(opt);
+  }
+}
+
+// ─────────────────────────────────────────
+// NAVBAR
+// ─────────────────────────────────────────
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+// ─────────────────────────────────────────
+// SCROLL FADE-IN
+// ─────────────────────────────────────────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ─────────────────────────────────────────
+// FORM SUBMIT
+// ─────────────────────────────────────────
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const btn = e.target;
+  btn.textContent = T[currentLang]['form.submit.ok'];
+  btn.style.background = '#3A6B35';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = T[currentLang]['form.submit'];
+    btn.style.background = '';
+    btn.disabled = false;
+  }, 4000);
+}
+
+// ─────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────
+setLanguage(currentLang);
+</script>
+
+</body>
+</html>
